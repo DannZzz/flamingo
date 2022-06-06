@@ -5,10 +5,10 @@ import PrivateIo from "../classes/PrivateIo";
 import Encrypty from "./Encrypty";
 
 export default async function signup (io: Server, socket: Socket, data) { // {password, username, email, window, document, cookie}
-    const isEmail = await findUser(data.email, "email");
+    const isEmail = await findUser("email", data.email);
     if (isEmail) return new PrivateIo(io).emit(socket.id, "authError", 3);
     if (checkUserNamesSymbols(data.username)) return new PrivateIo(io).emit(socket.id, "authError", 4)
-    const isUsername = await findUser(data.username, "username");
+    const isUsername = await findUser("username", data.username);
     if (isUsername) return new PrivateIo(io).emit(socket.id, "authError", 2);
     
     const user = await createUser({
