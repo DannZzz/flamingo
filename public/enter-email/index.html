@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+  <title>Email Верификация</title>
+</head>
+
+<body>
+  <div class="notify"><span id="notifyType" class=""></span></div>
+
+  <div class="container">
+    <h2>Получение данных</h2>
+    <p>На вашу почту будет отправлено письмо с кодом.</p>
+    <form id="forM">
+      <div class="code-container">
+        <input type="email" placeholder="example@example.com" id="mail" required>
+      </div>
+      <input type="submit" value="Проверить" id="check"></input>
+    </form>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://unpkg.com/cookie_js@1.2.2/cookie.min.js"></script>
+  <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:300,700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --text-color: #000000;
+  --background-color: #A0AECD;
+  --background-secondary: #5a7dc9;
+}
+
+body {
+  background: var(--background-color);
+  /* background-image: url(https://images6.alphacoders.com/377/377152.jpg); */
+  font-family: Helvetica, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  max-width: 1100px;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#check {
+  width: 200px;
+  padding: 20px 30px;
+  margin: 30px;
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background .5s;
+  background: #1DBF73;
+  color: var(--text-color);
+  font-size: 20px;
+}
+
+.code-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.code {
+  border-radius: 5px;
+  font-size: 75px;
+  height: 120px;
+  width: 100px;
+  border: 1px solid #eee;
+  outline-width: thin;
+
+  outline-color: #ddd;
+  margin: 1%;
+  text-align: center;
+  font-weight: 300;
+  -moz-appearance: textfield;
+  margin-left: 10px;
+}
+
+#newPassword {
+
+  border-radius: 5px;
+  border: 1px solid #eee;
+  outline-width: thin;
+
+  outline-color: #ddd;
+  height: 120px;
+  width: 500px;
+  font-size: 50px;
+  text-align: center;
+  font-weight: 300;
+  -moz-appearance: textfield;
+}
+
+#newPassword:valid {
+  border-color: #1DBF73;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.code::-webkit-outer-spin-button,
+.code::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.code:valid {
+  border-color: #1DBF73;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.info {
+  background-color: #eaeaea;
+  display: inline-block;
+  padding: 10px;
+  line-height: 20px;
+  max-width: 400px;
+  color: #777;
+  border-radius: 5px;
+}
+
+@media (max-width: 600px) {
+  .code-container {
+    flex-wrap: wrap;
+  }
+
+  .code {
+    font-size: 60px;
+    height: 80px;
+    max-width: 70px;
+  }
+
+  #newPassword {
+    font-size: 60px;
+    height: 80px;
+    max-width: 500px;
+  }
+}
+
+/* NOTIFICATIONS */
+
+.notify {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 0;
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, .6);
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: height .2s;
+}
+
+#notifyType:before {
+  display: block;
+  margin-top: 15px;
+}
+
+.active {
+  height: 50px;
+}
+
+.fail1:before {
+  Content: "Код указан неверно.";
+}
+
+.fail2:before {
+  content: "Пароль должен быть не меньше чем 4 символов.";
+}
+
+.fail3:before {
+  content: "Время истекло, попробуй еще раз.";
+}
+
+.fail4:before {
+  content: "Пароль успешно изменён.";
+}

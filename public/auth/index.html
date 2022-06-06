@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Classic Login Form Example</title>
+    <link href="https://fonts.googleapis.com/css?family=Assistant:400,700" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="./style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="notify"><span id="notifyType" class=""></span></div>
+    <br>
+    <br>
+    <br>
+    <div class="cont">
+        <div class="form sign-in">
+            <form action="" id="submit">
+                <h2>Войдите с помощью</h2>
+                <div class="apps">
+                    <ul>
+                        <li><a class="discord_app"
+                                href="https://discord.com/api/oauth2/authorize?client_id=970217615538655244&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fdiscord&response_type=code&scope=identify"><img
+                                    id="discord_logo" class="logos" src="discord.png" alt="Войти через Дискорд"></a>
+                        </li>
+                    </ul>
+                    <br>
+                    <h1>Или</h1>
+                    <br>
+                </div>
+
+                <label>
+                    <span>Email или имя пользователя</span>
+                    <input id="usernameOrEmail" type="text" type="email" minlength="3" required>
+                </label>
+                <label>
+                    <span>Пароль</span>
+                    <input id="password" type="password" minlength="4" required>
+                </label>
+                <p id="forgot-pass">Забыли пароль?</p>
+                <input type="submit" class="submit" value="Войти"></input>
+            </form>
+        </div>
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+
+                    <h3>Не имеете аккаунт? Зарегистрируйтесь бесплатно!<h3>
+                </div>
+                <div class="img__text m--in">
+
+                    <h3>Если вы уже имеете аккаунт, войдите в него.<h3>
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">Создать</span>
+                    <span class="m--in">Вход</span>
+                </div>
+            </div>
+            <div class="form sign-up">
+                <form action="" id="submitReg">
+                    <h2>Регистрация</h2>
+                    <div class="apps">
+                        <ul>
+                            <li><a class="discord_app"
+                                    href="https://discord.com/api/oauth2/authorize?client_id=970217615538655244&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fdiscord&response_type=code&scope=identify"><img
+                                        id="discord_logo" class="logos" src="discord.png" alt="Войти через Дискорд"></a>
+                            </li>
+                        </ul>
+                        <br>
+                        <h1>Или</h1>
+                        <br>
+                    </div>
+
+                    <label>
+                        <span>Имя пользователя</span>
+                        <input id="username" type="text" minlength="3" maxlength="30" required>
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input id="email" type="email" required>
+                    </label>
+                    <label>
+                        <span>Пароль</span>
+                        <input id="passwordReg" type="password" minlength="6" required>
+                    </label>
+                    <input type="submit" class="submit" value="Создать"></input>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!--<footer>
+  <p>Made with <span class='heart'>&hearts;</span> by Bridges(<a href='https://github.com/pxntxs'>@pxntxs</a>)</p>
+  <p>Gradient: <a href='https://uigradients.com/#Turquoiseflow'>https://uigradients.com/#Turquoiseflow</a></p>
+</footer> --->
+    <!-- partial -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://unpkg.com/cookie_js@1.2.2/cookie.min.js"></script>
+    <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script>
+    <script src="./script.js"></script>
+    <script src="./auth.js"></script>
+</body>
+
+</html>

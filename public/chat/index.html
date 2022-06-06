@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>First website</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --text-color: #000000;
+      --background-color: #A0AECD;
+      --background-secondary: #5a7dc9;
+      --chat-width: 60%;
+      --screen-max-width: 1200px;
+    }
+  </style>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/slider.css">
+  <link rel="stylesheet" href="css/membership.css">
+  <link rel="stylesheet" href="css/scroll-bar.css">
+  <link rel="stylesheet" href="css/nav-bar.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <script src="https://kit.fontawesome.com/0d1e8104a2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div id="profileContextMenu" class="hide"></div>
+  <div class="notify"><span id="notifyType" class=""></span></div>
+  <b>
+    <div class="nav second-background-shadow">
+      <input type="checkbox" id="nav-check">
+      <div class="nav-header">
+        <div class="nav-title">
+          Flamingo
+        </div>
+      </div>
+      <div class="nav-btn">
+        <label for="nav-check">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+
+      <div class="nav-links">
+        <a href="/profile" id="accountName" class="nav-link"></a>
+        <a href="/auth" id="logout" class="nav-link">Выход</a>
+      </div>
+    </div>
+  </b>
+
+
+  <main>
+
+    <div class="main-child chat-container">
+
+      <header>
+        <div class="hwrap">
+          <div class="hmove">
+
+          </div>
+        </div>
+      </header>
+      <div id="emojiBack">
+        <div id="emojiContainer" class="emojiMaker hide"></div>
+      </div>
+
+
+
+      <section class="chat second-background-shadow" id="chat">
+
+        <div class="chat-history" id="chat-history">
+        </div>
+
+        <div class="hide row" id="spaceForImages">
+          <div class="col" id="column"></div>
+        </div>
+        <div id="overlay" class="hide">
+          <div class="" id="overlay-content"></div>
+        </div>
+      </section>
+
+
+
+      <div id="send">
+        <textarea class="second-background-shadow" maxlength="4096" placeholder="Напиши что-то прекрасное.." id="messageInput" name="input"
+          rows="2"></textarea>
+        <!-- <input type="text" placeholder="Напиши что-то прекрасное.." id="messageInput" /> -->
+
+        <div class="tool-container">
+            <input accept="image/png,image/jpeg,image/jpg" type="file" id="uploadImagesInput" multiple>
+            <label for="uploadImagesInput" id="uploadFile" class="mEdit"><i class="fa-solid fa-images"></i></label>
+            <button id="emojiPicker" class="mEdit emojiMaker"><i class="fa-regular fa-face-grin-beam emojiMaker"></i></button>
+            <button class="mEdit" onclick="sendMessage()" id="sendMessage"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="main-child" id="membership-container">
+      <header>
+        <div class="membership-header">
+          <p>Онлайн: <b id="online-members-count"></b></p>
+        </div>
+      </header>
+      <div class="second-background-shadow" id="membership"></div>
+    </div>
+
+  </main>
+
+
+  <!-- Include jquery, cookies, socket.io (client-side) and your own code -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script>
+  <script src="javascript/modules.js"></script>
+  <script src="javascript/context.js"></script>
+  <script src="javascript/script.js"></script>
+  <script src="javascript/emojiPicker.js" type="module"></script>
+  <script src="javascript/slider.js"></script>
+</body>
+
+</html>

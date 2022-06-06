@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>First website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/solid.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/svg-with-js.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/0d1e8104a2.js" crossorigin="anonymous"></script>
+    
+
+    <style>
+        :root {
+        --text-color: #000000;
+        --background-color: #A0AECD;
+        --background-secondary: #5a7dc9;
+        }
+
+        body,
+        html {
+            /* you can add overflow:hidden here to make the scrollbar disappear */
+
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            font-family: Helvetica, Arial, sans-serif ;
+            /* background-image: url(https://images6.alphacoders.com/377/377152.jpg); */
+            background: var(--background-color);
+        }
+
+        #headers {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            max-width: 100%;
+            height: 50px;
+            padding: 10px 10px 10px 10px;
+            position: static;
+            color: var(--text-color);
+        }
+
+        .nav-link:hover {
+            background-color: var(--text-color);
+            color: var(--background-color);
+        }
+        
+        #headers>#links {
+            position: relative;
+            display: inline;
+            font-size: 18px;
+            float: right;
+        }
+
+        #headers>#button-back {
+            display: inline-block;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        #profilepic:hover .profilepic__content {
+            opacity: 1;
+        }
+
+
+        .hov:hover {
+            opacity: .5;
+        }
+
+        #profilepic__image .hov {
+            object-fit: cover;
+            opacity: 1;
+            transition: opacity .2s ease-in-out;
+        }
+
+        .profilepic__content:hover + .profiepic__image {
+            opacity: 0.5;
+        }
+        
+        .profilepic__content {
+            position: relative;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            opacity: 0;
+            transition: opacity .2s ease-in-out;
+        }
+
+        .profilepic__icon {
+            position: relative;
+            margin-top: -200px;
+            position: absolute;
+            color: white;
+            padding-bottom: 8px;
+        }
+
+        .fas {
+            font-size: 20px;
+        }
+
+        ::-webkit-file-upload-button {
+            display: none;
+        }
+
+        ::file-selector-button {
+            display: none;
+        }
+
+        input[ty] {
+            display: none;
+        }
+
+        .profilepic__text {
+            position: relative;
+            margin-top: -170px;
+            font-size: 12px;
+            width: 50%;
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #button-discord a {
+            color: #7085D6;
+        }
+
+        #button-back {
+            color: white;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, .5);
+            font-size: 20pt;
+        }
+
+        .profile-body {
+            margin: 25px auto auto auto;
+        }
+
+        .profile {
+            margin-top: -45px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 25px;
+            background-color: #ddd;
+            padding: 20px;
+            z-index: 0;
+            max-width: 50%;
+        }
+
+        .socialmedia {
+            text-align: center;
+        }
+
+        .photo {
+            margin: 25px;
+        }
+
+        .image--cover {
+            width: 170px;
+            height: 170px;
+            border: #fff 3px solid;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: auto;
+            margin-top: auto
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        textarea:focus:-webkit-placeholder {
+            color: transparent;
+        }
+
+        textarea:focus {
+            border-color: #fff;
+        }
+
+        .bio {
+            width: 100%;
+            margin: 20px 0 1px 0;
+            border-color: #fff;
+            font-size: 20px;
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+        .bioInput {
+            padding: 5px;
+        }
+
+        .status-box {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            width: 100%;
+            right: 0;
+            color: var(--background-secondary);
+            text-align: center;
+        }
+
+        .status-text {
+            max-width: 50%;
+        }
+
+        .edit-status {
+            padding: 5px;
+
+        }
+
+        .edit-status:hover {
+            color: #fff;
+            background-color: var(--background-secondary);
+        }
+
+        .new-status {
+            border: none;
+        }
+
+        .username,
+        .discord {
+            text-align: center;
+            padding: 0;
+            margin: 1px;
+        }
+        
+        .username {
+            border-radius: 1%;
+            border-color: #fff;
+            width: 100%;
+            font-size: 20pt;
+            margin: 2px
+        }
+
+
+        .discord {
+            font-size: 14pt;
+            margin: 2px
+        }
+
+        #button-discord {
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            padding: 5px;
+            margin: 1px;
+        }
+
+        .button-facebook,
+        .button-instagram,
+        .button-twitter,
+        .button-whatsapp {
+            padding: 5px;
+            font-size: 30pt;
+        }
+
+        .button-facebook {
+            color: #3C5A99;
+        }
+
+        .button-instagram {
+            color: #893dc2;
+        }
+
+        .button-twitter {
+            color: #1DA1F2;
+        }
+
+        .button-whatsapp {
+            color: #4AC959;
+        }
+
+        #button-discord {
+            color: #7085D6
+        }
+
+        /* NOTIFICATIONS */
+
+        .notify {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+            height: 0;
+            box-sizing: border-box;
+            color: white;
+            text-align: center;
+            background: rgba(0, 0, 0, .6);
+            overflow: hidden;
+            box-sizing: border-box;
+            transition: height .2s;
+        }
+
+        #notifyType:before {
+            display: block;
+            margin-top: 15px;
+        }
+
+        .active {
+            height: 50px;
+        }
+
+        .fail1:before {
+            Content: "Размер файла должен быть не больше 5MB!";
+        }
+
+        .fail2:before {
+            Content: "Допустимый формат - PNG и JPG/JPEG";
+        }
+
+        .fail3:before {
+            Content: "Имя пользователя занят.";
+        }
+
+        .fail4:before {
+            content: "Имя пользователя может включать (как минимум 4 букв) a-z, A-Z, 0-9 и эти символы '. _'. И не должны быть отступы.";
+        }
+
+        .fail5:before {
+            content: "Изменения сохранились.";
+        }
+
+        .fail6:before {
+            content: "Минимальная длина ника - 4.";
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="notify"><span id="notifyType" class=""></span></div>
+
+    <div id="headers">
+        <i onclick="window.location.href = window.location.origin" class="fas fa-arrow-left" id="button-back"></i>
+        <div id="links">
+            <p id="editSave" class="nav-link">Изменить Профиль</p>
+        </div>
+    </div>
+
+    <div class="profile-body">
+        <div id="profilepic" class="photo">
+            <label for="uploadProfileImage"><img id="profilepic__image" class="image--cover"
+                    src="https://i.ibb.co/M112F3K/default.jpg" alt="Profibild" />
+                <div class="profilepic__content" id="changeProfile">
+                </div>
+            </label>
+        </div>
+
+        <div class="profile">
+            <h1 class="username"></h1>
+            <h3 class="status-box"><i class="fa-solid fa-pen-to-square edit-status"></i><span id="status-text" class="status-text"></span></h3>
+            <p class="bio"></p>
+            <!-- <h2 class="profession"> Designer </h2> -->
+            <!-- <h3 class="discord" id="button-discord"><i class="fab fa-discord"></i><a
+                    href="https://discord.com/api/oauth2/authorize?client_id=970217615538655244&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fdiscord&response_type=code&scope=identify">
+                    Подключить</a></h3> -->
+            <!-- <div class="socialmedia">
+                <a href="#" class="button-facebook"><i class="fab fa-facebook-square"></i></a>
+                <a href="#" class="button-instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="button-twitter"><i class="fab fa-twitter-square"></i></a>
+                <a href="#" class="button-whatsapp"><i class="fab fa-whatsapp-square"></i></a>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Include jquery, cookies, socket.io (client-side) and your own code -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://unpkg.com/cookie_js@1.2.2/cookie.min.js"></script>
+    <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script>
+    <script>
+        var ac = false;
+        const token = localStorage.getItem("token");
+        const tok = () => localStorage.getItem("token");
+        const socket = io();
+
+        if (window.location.href === `${window.location.origin}/profile/` || window.location.href.includes("?")) {
+            if (!token) {
+                window.location.href = `${window.location.origin}/`;
+            } else {
+                socket.emit("userRequest", token);
+                socket.on("userData", user => {
+                    window.location.href = `${window.location.origin}/profile/${user.username}`;
+                })
+            }
+        }
+
+        window.onload = () => {
+            socket.emit("userRequestUsername", window.location.href.split("profile/")[1].split("/")[0]);
+            socket.on("userDataUsername", async data => {
+                if (!data) return;
+                if (!data.avatar) {
+                    document.getElementsByClassName("image--cover")[0].src = "https://i.ibb.co/M112F3K/default.jpg";
+                } else {
+                    document.getElementsByClassName("image--cover")[0].src = data.avatar;
+                }
+                document.getElementsByClassName("username")[0].innerHTML = data.username;
+                if (data.biography) {
+                    document.getElementsByClassName("bio")[0].innerHTML = data.biography;
+                }
+
+                if (data.status) {
+                    statusText().innerHTML = data.status;
+                }
+                // if (data.discordId) {
+                //     const API = "https://discord-web-api.glitch.me/discord/user/";
+                //     fetch(API + data.discordId).then(d => d.json()).then(d => {
+                //         if (d?.username && d?.discriminator) document.getElementsByClassName("discord")[0].innerHTML = `<i class="fab fa-discord"></i> ${d.username}#${d.discriminator}`;
+                //     })
+                // } else {
+                //     document.getElementById("button-discord").style.display = "none";
+                // }
+
+                if (!token) return;
+                socket.emit("userRequest", token);
+                socket.on("userData", d => {
+                    if (data.username !== d.username) return document.getElementById("editSave").classList.add("hide");
+
+                })
+            })
+        }
+
+        socket.on("updateAvatarData", (l) => {
+            socket.emit("newAvatarUrl", { url: l, token });
+        })
+
+        const statusBox = document.getElementsByClassName("status-box")[0];
+    function statusText () { return document.getElementsByClassName("status-text")[0] }
+        const statusElement = document.getElementsByClassName("edit-status")[0];
+        statusElement.onclick = (e) => {
+            if (statusText().tagName === "SPAN") {
+                statusBox.removeChild(statusText());
+                const element = document.createElement("input")
+                element.type = "text";
+                element.maxLength = 50;
+                element.classList.add("new-status", "status-text");
+                statusBox.appendChild(element)
+            } else {
+                const inputElement = document.getElementsByClassName("status-text")[0];
+                const status = inputElement.value || '';
+                socket.emit("newStatus", {token: tok(), status})
+                statusBox.removeChild(inputElement);
+            }
+        }
+
+        socket.on("newStatusVerified", (status) => {
+            const element = document.createElement("span");
+                element.innerHTML = status;
+                element.classList.add("status-text")
+                statusBox.appendChild(element);
+        })
+
+        function enableChanges() {
+            // document.getElementById("button-discord").style.display = "";
+            const cont = document.getElementById("changeProfile");
+            cont.style.display = "flex";
+
+            const el = document.getElementsByClassName("username")[0];
+            const bio = document.getElementsByClassName("bio")[0];
+            $(`.username`).replaceWith(`<input placeholder=${el.innerHTML} class="username usernameInput" type="text" minlength="4" value=${el.innerHTML}>`)
+            $(`.bio`).replaceWith(`<textarea placeholder="Описание" class="bio bioInput" type="text" maxlength="250" value="${bio.innerHTML}" rows="10"></textarea>`)
+
+            const doc = document.getElementById("changeProfile");
+            socket.emit("profileChanges", null);
+            socket.on("enableChanges", d => {
+                doc.innerHTML = d;
+                const image = document.getElementById("profilepic__image");
+                image.classList.add("hov");
+
+                const input = document.getElementById('uploadProfileImage')
+
+                input.addEventListener('change', (event) => {
+                    const target = event.target
+                    if (target.files && target.files[0]) {
+                        const file = target.files[0];
+                        if (!["image/png", "image/jpg", "image/jpeg"].includes(file.type)) return invalidCode(2)
+                        /*Maximum allowed size in bytes
+                          5MB Example
+                          Change first operand(multiplier) for your needs*/
+                        const mb = 1024 * 1024;
+                        if (file.size > 5 * mb) {
+                            // Here you can ask your users to load correct file
+                            return invalidCode(1);
+                        }
+                        const reader = new FileReader()
+                        reader.onload = (e) => {
+                            document.getElementById("profilepic__image").setAttribute("src", e.target.result);
+                            // 
+                        }
+
+                        reader.readAsDataURL(target.files[0]);
+                        ac = true;
+                    }
+                })
+            });
+
+        }
+
+        const sv = document.getElementById("editSave");
+        sv.onclick = () => {
+            if (sv.innerHTML !== "Сохранить") {
+                enableChanges();
+                sv.innerHTML = "Сохранить"
+            } else {
+                const username = document.getElementsByClassName("username")[0].value;
+                const avatarUrl = document.getElementById("profilepic__image").src;
+                const bio = document.getElementsByClassName("bio")[0].value;
+                if (ac) {
+                    socket.emit("tryUpdateLink", avatarUrl);
+                }
+
+                socket.emit("newUsernameAndBio", {bio, username, token});
+            }
+        }
+
+        socket.on("updateCode", code => {
+            if (code === 5) {
+                invalidCode(code, () => window.location.href = `${window.location.origin}/profile`, 3000)
+            } else {
+                invalidCode(code)
+            }
+            
+        })
+
+        function changeNameById(id, name) {
+            const e = document.getElementById(id);
+            if (!e) return;
+            e.innerHTML = name;
+        }
+
+        function invalidCode(code, fn, timeout = 5000) {
+            $(".notify").addClass("active");
+            $("#notifyType").addClass("fail" + code);
+
+            setTimeout(function () {
+                $(".notify").removeClass("active");
+                $("#notifyType").removeClass("fail" + code);
+                fn?.()
+            }, timeout);
+        }
+
+    </script>
+
+</body>
+
+</html>

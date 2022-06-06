@@ -1,0 +1,87 @@
+#membership-container {
+    max-width: 300px;
+    width: calc(100% - 40px);
+    display: inline;
+
+}
+
+#membership {
+    width: 100%;
+    /* right: 0; */
+    background: var(--background-secondary);
+    overflow-wrap: break-word;
+    overflow-y: auto;
+    border-radius: 1%;
+    /* -ms-overflow-style: none;
+    scrollbar-width: none; */
+}
+
+@media screen and (max-width: 900px) {
+    .chat-container {
+        width: 100%;
+    }
+
+    #emojiBack {
+        width: 95%;
+    }
+}
+
+#membership hr {
+	background: #e9e9e9;
+    border: 0;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 1px;
+    margin: 0;
+    min-height: 1px;
+}
+
+.membership-header {
+    padding: 5px 0;
+}
+
+.membership-header p {
+    margin: 0;
+
+    text-align: left;
+    font-size: 32px;
+    color: var(--text-color);
+    box-sizing: border-box;
+    padding: 0.5%;
+}
+
+#onlineCount {
+    position: absolute;
+    float: right;
+    font-size: 32px;
+    color: var(--background-color);
+    z-index: 1;
+}
+
+.onlineMember {
+    margin: 16px;
+}
+
+.onlineMemberContent {
+    margin-left: 56px;
+}
+
+.onlineMemberAvatar {
+    border: 0;
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+
+    border-radius: 50%;
+	float: left;
+}
+
+.onlineMemberUsername {
+    line-height: 1.5em;
+	margin: 0;
+	font-size: 15px;
+}
+
+.onlineMemberBio {
+    margin: 0;
+}

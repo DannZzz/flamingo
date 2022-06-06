@@ -1,0 +1,406 @@
+* {
+  box-sizing: border-box;
+  transition: all .3s ease;
+}
+
+.hide {
+  display: none;
+}
+
+html,
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  scroll-behavior: smooth;
+  background: var(--background-color);
+  /* background-image: url(https://images6.alphacoders.com/377/377152.jpg?size=2048); */
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+main {
+  display: flex;
+  width: calc(100% - 20px);
+  max-width: 1500px;
+  margin: 0 auto;
+  left: 50%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+
+.second-background-shadow {
+  box-shadow: 0 0 8px var(--background-secondary);
+}
+
+.text-color-shadow {
+  text-shadow: var(--text-color);
+}
+
+/* (A) FIXED WRAPPER */
+.hwrap {
+  
+  max-width: 100%;
+  margin: 0;
+  padding: 5px 0;
+  font-size: 32px;
+  align-items: center;
+  color: var(--text-color);
+  overflow: hidden; /* HIDE SCROLL BAR */
+}
+ 
+/* (B) MOVING TICKER WRAPPER */
+.hmove { display: flex; }
+
+/* (C) ITEMS - INTO A LONG HORIZONTAL ROW */
+.hitem {
+  flex-shrink: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5%;
+  text-align: center;
+}
+ 
+/* (D) ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
+/* 4 ITEMS -400%, CHANGE THIS IF YOU ADD/REMOVE ITEMS */
+@keyframes tickerh {
+  0% { transform: translate3d(100%, 0, 0); }
+  100% { transform: translate3d(-400%, 0, 0); }
+}
+.hmove { animation: tickerh linear 35s infinite; }
+.hmove:hover { animation-play-state: paused; }
+
+.chat-container {
+  display: inline;
+  width: var(--chat-width);
+}
+
+.chat,
+#emojiBack {
+  position: relative;
+  /* flex-grow: 1; */
+  border-radius: 1%;
+  content: '';
+  width: 100%;
+  height: calc(100vh - 165px);
+  background: var(--background-secondary);
+  padding: 5px 10px;
+  overflow-wrap: break-word;
+  overflow-y: auto;
+  /* -ms-overflow-style: none; */
+  /* scrollbar-width: none; */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+/* .chat::-webkit-scrollbar, #emojiBack::-webkit-scrollbar, #membership::-webkit-scrollbar {
+  display: none;
+} */
+
+textarea {
+  resize: none;
+}
+
+textarea:focus:-webkit-placeholder {
+  color: transparent;
+}
+
+
+
+#send {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  justify-content:start;
+  white-space:nowrap;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+
+.tool-container {
+  display: flex;
+  margin-top: 10px;
+  object-fit: contain;
+  padding: 0;
+  white-space:nowrap;
+  flex-wrap: nowrap;
+}
+
+
+.mEdit {
+  float: right;
+  display: inline;
+  color: var(--background-secondary);
+  background-color: var(--background-color);
+  z-index: 1;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  outline: none !important;
+  cursor: pointer;
+  font-size: medium;
+  margin: 0 5px;
+  /* margin: 0 5px; */
+}
+
+.mEdit:hover { 
+  background-color: var(--background-secondary);
+  color: var(--background-color);
+} 
+
+
+::file-selector-button {
+  display: none;
+}
+
+#uploadImagesInput {
+  display: none;
+}
+
+
+#emojiBack {
+  width: 55%;
+  margin: 0;
+  display: inline;
+  background: transparent;
+  position: absolute;
+}
+
+#emojiContainer {
+  z-index: 1;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+}
+
+#messageInput {
+  display: inline-block;
+  background-color: var(--background-secondary);
+  /* -ms-overflow-style: none; */
+  /* scrollbar-width: none; */
+  border-radius: 5px;
+  border: none;
+  outline: none !important;
+  resize: none;
+  font-size: 15px;
+  margin-top: 10px;
+  padding: 2px 20px;
+  color: #444;
+}
+
+/* #messageInput::-webkit-scrollbar {
+  display: none;
+} */
+
+/* #logout, #account {
+    margin-top: 2px;
+    margin-bottom: 50px;
+    padding: 5px 10px;
+    float: right;
+    position:relative;
+  } */
+
+/* button:hover {
+  cursor: pointer;
+  background: #ddd;
+} */
+
+@media all and (min-width: 500px) {
+
+  .chat,
+  #emojiBack {
+    height: calc(100vh - 190px);
+  }
+
+  #membership {
+    height: calc(100vh - 140px);
+  }
+
+  textarea {
+    width: 90%;
+  }
+
+  /* button {
+    float: right;
+    width: 150px;
+    border-radius: 1%;
+  } */
+}
+
+
+
+#profileContextMenu {
+  position: absolute;
+  z-index: 1;
+  padding: 5px 10px;
+  margin-top: 5%;
+  background: var(--background-color);
+  border-radius: 0.1cm;
+  border: 0.3px solid black;
+}
+
+.profileMenuList {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  min-width: 150px;
+  /* padding: 7px; */
+  border-radius: 0.5cm;
+  cursor: pointer;
+}
+
+.profileMenuList a, .profileMenuList p {
+  text-decoration: none;
+  color: #000;
+  padding: 5px;
+}
+
+.profileMenuList a:hover, .profileMenuList p:hover {
+  color: var(--text-color);
+  
+}
+
+
+#overlay-content {
+  padding: 0px;
+  top: 5%;
+  transform: translate(-50%, 0);
+  position: absolute;
+  max-width: 60%;
+  width: 100%;
+  left: 50%;
+  max-height: 80%;
+}
+
+.messageDiv {
+  -webkit-touch-callout: initial;
+  -webkit-user-select: text;
+  -khtml-user-select: var(--text-color);
+  -moz-user-select: text;
+  -ms-user-select: initial;
+  user-select: text;
+  width: 100%;
+  top: 50%;
+  background: lightgray;
+  padding: 10px;
+  position: fixed;
+  justify-content: center;
+}
+
+
+.relative {
+  position: relative;
+}
+
+.ctx {
+  float:right;
+  position: relative;
+  z-index: 1;
+}
+
+.ctx p {
+  padding: 3px 8px 3px 8px;
+  display: inline;
+  color: #fff;
+  border-radius: 1px;
+}
+
+.ctx p:hover {
+  background-color: var(--background-secondary);
+  color: var(--background-color);
+}
+
+/* Notification */
+.notify {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 0;
+  z-index: 0;
+  box-sizing: border-box;
+  color: white;
+  text-align: center;
+  background: rgba(0, 0, 0, .6);
+  transition: height .2s;
+}
+
+#notifyType:before {
+  display: block;
+  margin-top: 15px;
+}
+
+.notify .active {
+  height: 50px;
+}
+
+.fail1:before {
+  Content: "Текст скопирован!";
+}
+
+.fail2:before {
+  content: "Сразу можно отправить до 10-и файлов!"
+}
+
+/*--------------------
+Custom 
+--------------------*/
+
+
+#overlay {
+  position: fixed;
+  /* Sit on top of the page content */
+  width: 100%;
+  /* Full width (cover the whole page) */
+  height: 100%;
+  /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Black background with opacity */
+  z-index: 2;
+  /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer;
+  /* Add a pointer on hover */
+}
+
+#spaceForImages {
+  background: rgba(175, 162, 162, 0.6);
+  max-width: 100%;
+  position: absolute;
+}
+
+#column {
+  text-align: justify;
+  display: flex;
+	justify-content:start;
+  flex-wrap: wrap;
+}
+
+#column .pendingImage {
+  margin: 20px 20px 10px 10px;
+  max-width: 350px;
+  max-height: 350px;
+  
+}
+
+#column .removeX {
+  float: right;
+  margin-right: 5px;
+  font-size: large;
+  color: var(--background-color);
+}
+
+#column .removeX:hover {
+  color:var(--text-color);
+}
+
